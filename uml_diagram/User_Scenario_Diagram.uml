@@ -4,12 +4,20 @@ actor "Пользователь" as User
 actor "Администратор" as Admin
 
 rectangle "Система аутентификации и авторизации" {
+    (Регистрация) as Registration
+    (Вход в систему) as Login
     (Проверка учетных данных) as CheckCredentials
     (Выдача токена доступа) as IssueAccessToken
     (Проверка прав доступа) as CheckAccessRights
-    
+    (Восстановление пароля) as PasswordRecovery
     (Сброс пароля) as ResetPassword
     (Изменение пароля) as ChangePassword
+    (Просмотр профиля) as ViewProfile
+    (Редактирование профиля) as EditProfile
+    (Удаление учетной записи) as DeleteAccount
+    (Управление пользователями) as ManageUsers
+    (Блокировка пользователя) as BlockUser
+    (Просмотр отчетов) as ViewReports
 }
 
 User --> Registration : "Регистрируется"
