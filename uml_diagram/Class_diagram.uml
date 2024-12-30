@@ -1,0 +1,40 @@
+@startuml
+class LearningCourse {
+    - name: String            // Название курса
+    - length: Integer         // Длительность курса (в часах)
+    - cost: Float             // Стоимость курса
+    + details(): String       // Метод для получения информации о курсе
+}
+
+class Transport {
+    - brand: String           // Марка транспортного средства
+    - model: String           // Модель транспортного средства
+    - year: Integer           // Год выпуска
+    + details(): String       // Метод для получения информации о транспортном средстве
+}
+
+class Automobile extends Transport {
+    - license_plate: String   // Номерной знак автомобиля
+    + details(): String       // Метод для получения информации об автомобиле
+}
+
+class Teacher {
+    - name: String            // Имя учителя
+    - experience: Integer      // Опыт работы (в годах)
+    - field: String           // Область преподавания
+    + details(): String       // Метод для получения информации об учителе
+}
+
+class Learner {
+    - name: String            // Имя ученика
+    - age: Integer            // Возраст ученика
+    + details(): String       // Метод для получения информации об ученике
+}
+
+
+Learner "1" --> "1" LearningCourse
+LearningCourse "1" --> "*" Instructor
+Instructor "1" --> "*" Lesson
+Lesson "1" --> "1" Vehicle
+Learner "1" --> "1" DrivingAssessment
+@enduml
