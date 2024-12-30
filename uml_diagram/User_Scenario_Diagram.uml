@@ -7,6 +7,10 @@ rectangle "Система аутентификации и авторизации
     (Проверка учетных данных) as CheckCredentials
     (Выдача токена доступа) as IssueAccessToken
     (Проверка прав доступа) as CheckAccessRights
+    
+    (Сброс пароля) as ResetPassword
+    (Изменение пароля) as ChangePassword
+    (Проверка силы пароля) as CheckPasswordStrength
 }
 
 User --> Registration : "Регистрируется"
@@ -15,16 +19,15 @@ Login --> CheckCredentials : "Проверка учетных данных"
 CheckCredentials --> IssueAccessToken : "Выдает токен доступа"
 IssueAccessToken --> CheckAccessRights : "Проверяет права доступа"
 User --> PasswordRecovery : "Восстанавливает пароль"
+User --> ResetPassword : "Запрашивает сброс пароля"
+User --> ChangePassword : "Изменяет пароль"
+User --> CheckPasswordStrength : "Проверяет силу пароля"
 User --> ViewProfile : "Просматривает профиль"
 User --> EditProfile : "Редактирует профиль"
 User --> DeleteAccount : "Удаляет учетную запись"
 
-
 Admin --> ManageUsers : "Управляет пользователями"
 Admin --> BlockUser : "Блокирует пользователей"
 Admin --> ViewReports : "Просматривает отчеты"
-
-
-
 
 @enduml
